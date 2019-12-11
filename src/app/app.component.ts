@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
   }
   private buildForm() {
     this.maskForm = this.fb.group({
-      amount: ''
+      textMask: '',
+      ngMask: ''
     });
   }
   convertCurrencyToDecimal(currency: string): number {
@@ -31,7 +32,6 @@ export class AppComponent implements OnInit {
   }
   submitFund(): void {
     if (this.maskForm.valid) {
-      this.convertCurrencyToDecimal(this.maskForm.get('amount').value);
       console.log('this.maskForm.value', this.maskForm.value);
     }
   }

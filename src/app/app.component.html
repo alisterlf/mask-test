@@ -1,5 +1,6 @@
 <form [formGroup]="maskForm" (ngSubmit)="submitFund()">
-  <input [textMask]="{ mask: numberMask }" type="text" placeholder="Reserva" formControlName="amount" />
+  <input type="text" placeholder="textMask" formControlName="textMask" [textMask]="{ mask: numberMask }" />
+  <input type="text" placeholder="ngMask" formControlName="ngMask" mask="separator.2" thousandSeparator="." />
   <button type="submit">Enviar</button>
 </form>
 <router-outlet></router-outlet>
