@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,15 @@ import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 })
 export class AppComponent implements OnInit {
   maskForm: FormGroup;
-  public mask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-  public numberMask = createNumberMask({
+  public textMaskCurrecy = createNumberMask({
     prefix: 'R$',
     allowDecimal: true,
     thousandsSeparatorSymbol: '.',
     decimalSymbol: ','
   });
+  public textMaskCPF = [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+  public textMaskDatePipe = createAutoCorrectedDatePipe('dd/mm/yyyy');
+  public textMaskDate: any = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
   constructor(private fb: FormBuilder) {}
   ngOnInit() {
     this.buildForm();
@@ -23,7 +26,11 @@ export class AppComponent implements OnInit {
   private buildForm() {
     this.maskForm = this.fb.group({
       textMask: '',
-      ngMask: ''
+      ngMask: '',
+      textMaskCPF: '',
+      ngMaskCPF: '',
+      textMaskDate: '',
+      ngMaskDate: ''
     });
   }
   convertCurrencyToDecimal(currency: string): number {

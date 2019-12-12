@@ -7,9 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
-export const options: Partial<IConfig> | (() => Partial<IConfig>) = {
-  prefix: 'R$ '
-};
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = {};
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, TextMaskModule, ReactiveFormsModule, FormsModule, NgxMaskModule.forRoot(options)],
