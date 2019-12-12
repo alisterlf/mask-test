@@ -3,8 +3,8 @@
   <input type="text" placeholder="textMask" formControlName="textMask" [textMask]="{ mask: textMaskCurrecy }" />
   <input type="text" placeholder="ngMask" formControlName="ngMask" mask="separator.2" thousandSeparator="." prefix="R$" />
   <h6>CPF</h6>
-  <input type="text" placeholder="textMaskCPF" formControlName="textMaskCPF" [textMask]="{ mask: textMaskCPF }" />
-  <input type="text" placeholder="ngMaskCPF" formControlName="ngMaskCPF" mask="000.000.000-00" />
+  <input type="text" inputmode="numeric" placeholder="textMaskCPF" formControlName="textMaskCPF" [textMask]="{ mask: textMaskCPF }" />
+  <input type="text" inputmode="numeric" placeholder="ngMaskCPF" formControlName="ngMaskCPF" mask="000.000.000-00" />
   <h6>Date</h6>
   <input type="text" placeholder="textMaskDate" formControlName="textMaskDate" [textMask]="{mask: textMaskDate, keepCharPositions: true, pipe: textMaskDatePipe}" />
   <input type="text" placeholder="ngMaskDate" formControlName="ngMaskDate" mask="d0/M0/0000" />
